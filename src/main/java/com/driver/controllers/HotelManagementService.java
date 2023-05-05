@@ -15,7 +15,9 @@ public class HotelManagementService {
     private HotelManagementRepository hotelManagementRepository=new HotelManagementRepository();
 
     public String addHotel(Hotel hotel) {
-        if(Objects.isNull(hotel) ||hotel.getHotelName().isEmpty() ||  hotelManagementRepository.isPresent(hotel.getHotelName())){
+        if(Objects.isNull(hotel))
+            return "FAILURE";
+        if(hotel.getHotelName()==null ||  hotelManagementRepository.isPresent(hotel.getHotelName())){
             return "FAILURE";
         }
         hotelManagementRepository.addHotel(hotel);
