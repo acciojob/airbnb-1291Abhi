@@ -16,10 +16,10 @@ public class HotelManagementService {
 
     public String addHotel(Hotel hotel) {
         if(hotel.getHotelName().equals("") || Objects.isNull(hotel) || hotelManagementRepository.isPresent(hotel.getHotelName())){
-            return "Failure";
+            return "FAILURE";
         }
         hotelManagementRepository.addHotel(hotel);
-        return "Success";
+        return "SUCCESS";
     }
 
     public Integer addUser(User user) {
